@@ -6,7 +6,33 @@
 2. sonarqube나 lint를 통한 테스트
 3. slack 알림
 
-## ngrok 설정 ##
+## jenkins 설정 ##
+- Webhook 설정
+- slack 설정
+
+## 1. 설치 ##
+- **jenkins 설치시 jdk설치가 되어있어야 하므로 jenkins:jdk11 설치 한다.**
+````yml
+version: '3.1'
+
+services:
+  jenkins:
+    image: jenkins/jenkins:jdk11
+    container_name: jenkins
+    ports:
+      - "20000:8080"
+    volumes:
+      - ../volume:/var/jenkins_home
+    user: root
+    privileged: true
+
+networks:
+  default:
+    external:
+      name: was-network
+````
+
+### ngrok 설정 ###
 - **방화벽 뒤에있는 사내 로컬 서버를 안전한 터널을 통해 공개 인터넷에 노출할 수 있도록 지원해주는 플랫폼**
 
 ### 설명 ###
