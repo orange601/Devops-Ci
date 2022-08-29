@@ -42,5 +42,5 @@ networks:
 - gradle로 빌드시 Invoke Gradle script 기능을 사용해야하므로 plugin에서 gradle을 설치해야만 사용할 수 있다.
 
 ## 서버 재부팅 ##
-- 서버 재부팅할때 체크 리스트
 - ngrok 실행 여부
+- rgrok이 재 실행되면 URL이 변경된다. webhook URL 확인
