@@ -38,7 +38,7 @@ networks:
 - 서버 재부팅시 URL 변경된다.
 - connection이 20으로 한정된다.
 
-### 2. jenkins Plugin ###
+### 3. jenkins Plugin ###
 - gradle로 빌드시 Invoke Gradle script 기능을 사용해야하므로 plugin에서 gradle을 설치해야만 사용할 수 있다.
 
 ## 서버 재부팅 ##
