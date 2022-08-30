@@ -43,6 +43,10 @@ networks:
 ### 3. jenkins Plugin ###
 - gradle로 빌드시 Invoke Gradle script 기능을 사용해야하므로 plugin에서 gradle을 설치해야만 사용할 수 있다.
 
+### 4. docker-compose 설치 ###
+- sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+- chmod +x /usr/local/bin/docker-compose
+- ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ## 서버 재부팅 ##
 - ngrok 실행 여부
 - rgrok이 재 실행되면 URL이 변경된다. webhook URL 확인
