@@ -104,5 +104,5 @@ bash /sharing/bash/deploy.sh
     - Content type - application/json 타입을 사용합니다.
 
 ## Trouble Shooting ##
-### 1. 웹훅 ###
+### 1. 웹훅  ###
 - ngrok에 url과 girhub에서 설정한 webhook URL이 같은지 확인
