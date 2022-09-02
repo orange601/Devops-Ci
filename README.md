@@ -6,29 +6,57 @@
 2. jenkins를 통한 build
 3. Was가 인식 할 수 있는 volume에 build 된 jar 배포
 
-## jenkins 설정 ##
+## Jenkins ##
 - Docker안에 Jenkins를 설치한다.
 
 ### 1. 설치 ###
 - **jenkins 설치시 jdk설치가 되어있어야 하므로 jenkins:jdk11 설치 한다.**
+**docker-compose.yml**
 ````yml
 version: '3.1'
 
 services:
   jenkins:
-    image: jenkins/jenkins:jdk11
-    container_name: jenkins
+    build: .
+    #image: jenkins/jenkins:jdk11
+    container_name: v2_jenkins
+    restart: on-failure
     ports:
       - "20000:8080"
     volumes:
-      - ../volume:/var/jenkins_home
+      - 볼륨명:/sharing/
+      - /var/lib/docker/volumes/볼륨명/_data/jenkins/home/:/var/jenkins_home/
+      - //var/run/docker.sock:/var/run/docker.sock
     user: root
     privileged: true
+
+volumes:
+    볼륨명:
 
 networks:
   default:
     external:
       name: was-network
+````
+**Dockerfile**
+````
+FROM jenkins/jenkins:jdk11
+USER root
+RUN curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+RUN chmod +x /usr/local/bin/docker-compose
+RUN apt-get update && \
+    apt-get -y install apt-transport-https \
+      ca-certificates \
+      curl \
+      gnupg2 \
+      software-properties-common && \
+    curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey && \
+    add-apt-repository \
+      "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+      $(lsb_release -cs) \
+      stable" && \
+   apt-get update && \
+   apt-get -y install docker-ce
 ````
 
 ### 2. ngrok 설정 ###
