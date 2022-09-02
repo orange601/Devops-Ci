@@ -1,11 +1,10 @@
 # devops-ci
 빌드/테스트 자동화
 
-## 환경 ##
-1. Server : Windows
-
 ## 목표 ##
-1. jenkins를 통한 webhook 빌드
+1. github webhook 설정
+2. jenkins를 통한 build
+3. Was가 인식 할 수 있는 volume에 build 된 jar 배포
 
 ## jenkins 설정 ##
 - Docker안에 Jenkins를 설치한다.
