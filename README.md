@@ -1,14 +1,14 @@
 # devops-ci
 빌드/테스트 자동화
 
+## 환경 ##
+1. Server : Windows
+
 ## 목표 ##
 1. jenkins를 통한 webhook 빌드
-2. sonarqube나 lint를 통한 테스트
-3. slack 알림
 
 ## jenkins 설정 ##
-- Webhook 설정
-- slack 설정
+- Docker안에 Jenkins를 설치한다.
 
 ### 1. 설치 ###
 - **jenkins 설치시 jdk설치가 되어있어야 하므로 jenkins:jdk11 설치 한다.**
