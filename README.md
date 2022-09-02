@@ -59,7 +59,7 @@ RUN apt-get update && \
    apt-get -y install docker-ce
 ````
 
-### 젠킨스 이동/복사 ###
+### 2. 젠킨스 이동/복사 ###
 - 서버 이전을 한다거나 새로 세팅하는 등 젠킨스를 옮겨야 하는 경우가 있다. 
 - 운영 중인 job이 있기 때문에 Credential 이나 Fingerprint, Plugin 등 기존 제킨스 설정을 그대로 함께 옮겨야 한다.
 - 젠킨스는 DB 같은 별도의 스토리지를 사용하지 않고, 폴더와 파일을 사용한다. 
@@ -70,24 +70,31 @@ RUN apt-get update && \
 3. 새 젠킨스를 실행한다.
 [출처](https://blog.leocat.kr/notes/2017/11/02/jenkins-backup-restore)
 
-### 2. ngrok 설정 ###
+** docker jenkins 설치시 host의 jenkins 경로와 local의 /var/jenkins_home 의 Volume을 맞춰두면 된다. **
+** 예) **
+````yml
+    volumes:
+      - orange/jenkins/:/var/jenkins_home/
+````
+
+### 3. ngrok 설정 ###
 - ngrok.exe http 8080
 - **방화벽 뒤에있는 사내 로컬 서버를 안전한 터널을 통해 공개 인터넷에 노출할 수 있도록 지원해주는 플랫폼**
 - [윈도우환경에서 설치 및 사용방법 출처:프뚜](https://ssjeong.tistory.com/entry/ngrok-%EB%A1%9C%EC%BB%AC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9D%98-%ED%84%B0%EB%84%90-%EC%97%B4%EA%B8%B0%EB%A1%9C%EC%BB%AC-PC-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95)
 - 서버 재부팅시 URL 변경된다.
 - connection이 20으로 한정된다.
 
-
-### 3. jenkins Plugin ###
-- gradle로 빌드시 Invoke Gradle script 기능을 사용해야하므로 plugin에서 gradle을 설치해야만 사용할 수 있다.
-
-### 4. docker-compose 설치 ###
-- sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-- chmod +x /usr/local/bin/docker-compose
-- ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-## 서버 재부팅 ##
-- ngrok 실행 여부
-- rgrok이 재 실행되면 URL이 변경된다. webhook URL 확인
+### 4. Webhook 설정 ###
+- 쉬우니 구글검색해서 설정한다. 
+- Build Steps
+````
+clean
+build --stacktrace
+````
+- Execute shell
+````
+bash /sharing/bash/deploy.sh
+````
 
 ### 주의사항 ###
 1. 웹훅
