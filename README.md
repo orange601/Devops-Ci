@@ -26,7 +26,7 @@ services:
     volumes:
       - 볼륨명:/sharing/
       - /var/lib/docker/volumes/볼륨명/_data/jenkins/home/:/var/jenkins_home/
-      - //var/run/docker.sock:/var/run/docker.sock
+      - //var/run/docker.sock:/var/run/docker.sock # container 안에서 host의 docker 명령어를 사용 가능
     user: root
     privileged: true
 
