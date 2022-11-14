@@ -9,14 +9,13 @@ services:
     ports:
       - "20000:8080"
     volumes:
-      - º¼·ý¸í:/sharing/
-      - /var/lib/docker/volumes/º¼·ý¸í/_data/jenkins/home/:/var/jenkins_home/
+      - orange_volume:/sharing/
       - //var/run/docker.sock:/var/run/docker.sock
     user: root
     privileged: true
 
 volumes:
-    º¼·ý¸í:
+    orange_volume:
 
 networks:
   default:
