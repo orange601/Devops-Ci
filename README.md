@@ -35,8 +35,9 @@ volumes:
 
 networks:
   default:
-    external:
-      name: was-network
+    name: was-network
+    external: true
+      
 ````
 **Dockerfile**
 ````
