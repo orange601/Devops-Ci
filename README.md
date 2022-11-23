@@ -29,6 +29,8 @@ services:
       - //var/run/docker.sock:/var/run/docker.sock # container 안에서 host의 docker 명령어를 사용 가능
     user: root
     privileged: true
+    extra_hosts: # jenkins 안에서 localhost 와 host의 localhost는 다르다 host의 localhost를 연결해주기 위한 설정이다.
+      - host.docker.internal:host-gateway
 
 volumes:
     볼륨명:
