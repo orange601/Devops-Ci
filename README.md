@@ -86,12 +86,18 @@ RUN apt-get update && \
 - connection이 20으로 한정된다.
 
 ### 4. Webhook 설정 ###
-- 쉬우니 구글검색해서 설정한다. 
+- Gradle 설정
+  1. Jenkins 관리에서 Global Tool Configuration을 클릭
+  2. 스크롤을 내리면 Gradle 이 있고, Gradle installations를 클릭하여 이름과 프로젝트의 Gradle 버전을 선택 후 Save
+  3. 프로젝트의 Build 탭으로 이동하여 Invoke Gradle 의 Gradle Version을 위에서 추가한 Gradle을 선택
+  4. Tasks 입력
+
 - Build Steps
 ````
 clean
 build --stacktrace
 ````
+
 - Execute shell
 ````
 bash /sharing/bash/deploy.sh
