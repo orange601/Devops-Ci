@@ -87,7 +87,7 @@ RUN apt-get update && \
 ### 4. Webhook 설정 ###
 - JENKINS- Gradle 설정
   1. Jenkins 관리에서 Global Tool Configuration 클릭
-  2. 스크롤을 내리면 Gradle 이 있고, Gradle installations 클릭, 이름과 프로젝트의 Gradle 버전 선택 후 Save
+  2. 스크롤을 내려 Gradle 설정, 이름과 프로젝트의 Gradle 버전 선택 후 Save
   3. 프로젝트 설정에서 Build Steps의 Invoke Gradle script 설정시 위에서 추가한 Gradle을 선택
   4. Tasks 입력
 
