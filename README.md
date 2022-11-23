@@ -79,14 +79,13 @@ RUN apt-get update && \
 ````
 
 ### 3. ngrok 설정 ###
-- ngrok.exe http 8080
 - **방화벽 뒤에있는 사내 로컬 서버를 안전한 터널을 통해 공개 인터넷에 노출할 수 있도록 지원해주는 플랫폼**
-- [윈도우환경에서 설치 및 사용방법 출처:프뚜](https://ssjeong.tistory.com/entry/ngrok-%EB%A1%9C%EC%BB%AC-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9D%98-%ED%84%B0%EB%84%90-%EC%97%B4%EA%B8%B0%EB%A1%9C%EC%BB%AC-PC-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95)
-- 서버 재부팅시 URL 변경된다.
-- connection이 20으로 한정된다.
+- 프로그램 재 시작 시 (서버 재부팅 시) URL 변경된다.
+- CI툴(JENKINS)에서 사용할 포트 방화벽을 열어야하므로 CI툴의 PORT를 열어준다,
+- 비회원은 세션이 8시간으로 한정되어있기때문에 회원가입 후 토큰을 등록한다.
 
 ### 4. Webhook 설정 ###
-- Gradle 설정
+- JENKINS- Gradle 설정
   1. Jenkins 관리에서 Global Tool Configuration 클릭
   2. 스크롤을 내리면 Gradle 이 있고, Gradle installations 클릭, 이름과 프로젝트의 Gradle 버전 선택 후 Save
   3. 프로젝트 설정에서 Build Steps의 Invoke Gradle script 설정시 위에서 추가한 Gradle을 선택
