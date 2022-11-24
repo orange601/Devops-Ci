@@ -7,7 +7,6 @@
 3. Was가 인식 할 수 있는 volume에 build 된 jar 배포
 
 ## Jenkins ##
-- Docker안에 Jenkins를 설치한다.
 
 ### 1. 설치 ###
 - **jenkins 설치시 jdk설치가 되어있어야 하므로 jenkins:jdk11 설치 한다.**
