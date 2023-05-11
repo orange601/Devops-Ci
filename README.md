@@ -3,7 +3,8 @@
 
 ## CI CD 도구 ##
 1. Github actions: Github에서 제공하는 워크플로우(workflow)를 자동화하도록 도와주는 도구
-- github actions에서 파일전달시 scp를 이용해서 파일전달을 해야 하는데 scp는 리눅스만 지원된다고 한다.
+  - private repo는 유료라고 한다.
+  - 파일전달시 scp를 이용해서 파일전달을 해야 하는데 scp는 리눅스만 지원한다.
 
 2. Travis CI: 유료 ( 무료버전도 천원정도 결제 된다고 한다 )
 
