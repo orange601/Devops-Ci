@@ -7,8 +7,14 @@
     - 파일전달시 scp를 이용해서 파일전달을 해야 하는데 scp는 리눅스만 지원한다.
 
 2. Travis CI: 유료 ( 무료버전도 천원정도 결제 된다고 한다 )
-
 3. CodeDeploy: 자동 배포하는 역할을 수행하는 AWS Service
+
+그외
+1. TeamCity 
+    - jetBrains의 빌드 관리 및 지속적 통합 서버로써 Java 환경에서 실행되며 
+    - Visual Studio 및 IDE와 통합될수있는데, Windows 및 Linux 서버에 모두 설치할 수 있으며 .NET 및 개방형 스택 프로젝트도 지원한다. 
+2. Bamboo (대나무)
+3. GitLab
 
 ## 목표 ##
 1. github webhook 설정
