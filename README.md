@@ -15,6 +15,7 @@
     - Visual Studio 및 IDE와 통합될수있는데, Windows 및 Linux 서버에 모두 설치할 수 있으며 .NET 및 개방형 스택 프로젝트도 지원한다. 
 2. Bamboo (대나무)
 3. GitLab
+4. CircleCI
 
 ## 목표 ##
 1. github webhook 설정
